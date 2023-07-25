@@ -78,7 +78,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'my_cattle.wsgi.application'
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
