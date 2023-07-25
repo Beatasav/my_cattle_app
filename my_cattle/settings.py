@@ -46,8 +46,8 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -116,8 +116,6 @@ TIME_ZONE = 'Europe/Vilnius'
 USE_I18N = True
 
 USE_TZ = True
-
-
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
