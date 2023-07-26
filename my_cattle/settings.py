@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-*j=i)1jnua!z)j(*7p6v1333qdhb)z^2o_t0!^0nn%%p_5(bi3'
 # DEBUG = config('DEBUG', cast=bool)
-DEBUG = True
+DEBUG = False
 # SECURITY WARNING: don't run with debug turned on in production!
 
 ALLOWED_HOSTS = ['mycattle.azurewebsites.net']
