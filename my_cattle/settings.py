@@ -84,10 +84,20 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'mssql',
+        'NAME': 'cattlemanagement',
+        'USER': 'cattle_admin',
+        'PASSWORD': 'Kasgero123',
+        'HOST': 'cattlemanagement.database.windows.net',
+        'PORT': '1433',
+
+        'OPTIONS': {
+            'driver': 'ODBC Driver 18 for SQL Server' }
+        },
     }
-}
+# set this to False if the backend does not support using time zones
+USE_TZ = False
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
