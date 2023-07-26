@@ -171,11 +171,15 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_URL = 'my_farm/static/'
+# Define the absolute filesystem path to the directory where `collectstatic` will copy the static files.
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# Define the URL base that will be used to serve the static files during runtime.
+STATIC_URL = '/static/'
+
+
+# Set the static files storage to WhiteNoise for serving static files in production.
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Set the default character encoding for the project
 DEFAULT_CHARSET = 'utf-8'
