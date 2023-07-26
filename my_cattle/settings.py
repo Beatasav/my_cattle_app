@@ -59,6 +59,9 @@ MIDDLEWARE = [
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_DOMAIN = 'mycattle.azurewebsites.net'
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 ROOT_URLCONF = 'my_cattle.urls'
 
