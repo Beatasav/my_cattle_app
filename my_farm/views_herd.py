@@ -12,7 +12,6 @@ def herd_list(request):
     This view retrieves information about herds, including the number of active cattle in each herd. Only cattle that
     are not marked as deleted and have no loss method specified are counted. The herds are paginated to display 5 herds
     per page.
-
     :param request: The HTTP request object.
     :return: The rendered HTTP response with the herd information displayed.
 
