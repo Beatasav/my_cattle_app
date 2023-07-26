@@ -23,10 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-*j=i)1jnua!z)j(*7p6v1333qdhb)z^2o_t0!^0nn%%p_5(bi3'
 # DEBUG = config('DEBUG', cast=bool)
-DEBUG = False
+DEBUG = True
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['mycattle.azurewebsites.net']
 
 INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
@@ -89,7 +89,7 @@ DATABASES = {
         'USER': 'cattle_admin',
         'PASSWORD': 'Kasgero123',
         'HOST': 'cattlemanagement.database.windows.net',
-        'PORT': '1433',
+        'PORT': '',
 
         'OPTIONS': {
             'driver': 'ODBC Driver 18 for SQL Server' }
