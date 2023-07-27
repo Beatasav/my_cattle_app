@@ -102,11 +102,9 @@ class GroupNumbers:
         for item in self.filter_acquisition_loss_dates:
             cattle = item['cattle']
 
-            entry_weight = round(GroupsManagement().estimate_cattle_weight(cattle['id'], cattle['entry_date']))
-            end_weight = round(GroupsManagement().estimate_cattle_weight(cattle['id'], cattle['end_date'])) if \
-                cattle['end_date'] is not None else 0
+            if 'acquisition_method' in cattle and cattle['entry_date'] >= start_date:
+                entry_weight = round(GroupsManagement().estimate_cattle_weight(cattle['id'], cattle['entry_date']))
 
-            if 'acquisition_method' in cattle:
                 if cattle['acquisition_method'] == 'Birth':
                     self.birth_count += 1
                     self.birth_weight += entry_weight
@@ -118,6 +116,9 @@ class GroupNumbers:
                     self.gift_weight += entry_weight
 
             if 'loss_method' in cattle:
+                end_weight = round(GroupsManagement().estimate_cattle_weight(cattle['id'], cattle['end_date'])) if \
+                    cattle['end_date'] is not None else 0
+
                 if cattle['loss_method'] == 'Death':
                     self.death_count += 1
                     self.death_weight += end_weight
@@ -130,7 +131,6 @@ class GroupNumbers:
                 elif cattle['loss_method'] == 'Gifted':
                     self.gifted_count += 1
                     self.gifted_weight += end_weight
-
     def check_movement(self, start_date_groups, end_date_groups, start_date, end_date):
         """
         Checks the movement of the group by comparing the start and end date groups.
