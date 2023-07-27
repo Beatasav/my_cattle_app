@@ -178,7 +178,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'my_farm'),
+    os.path.join(BASE_DIR, 'my_farm/static'),
 ]
 # Set the static files storage to WhiteNoise for serving static files in production.
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
