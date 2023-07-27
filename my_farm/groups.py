@@ -233,23 +233,29 @@ class CattleGroupData:
         self.entry_date = None
         self.comments = None
         self.active_cattle = 0
+        self.cattle_list = []
 
     def cattle_data(self):
         """
         Extracts the cattle data from the group data and assigns it to the instance properties.
         """
         for cattle_data in self.group_data:
-            if cattle_data['cattle']['end_date'] is not None:
-                self.id = cattle_data['cattle']['id']
-                self.type = cattle_data['cattle']['type']
-                self.number = cattle_data['cattle']['number']
-                self.name = cattle_data['cattle']['name']
-                self.gender = cattle_data['cattle']['gender']
-                self.breed = cattle_data['cattle']['breed']
-                self.birth_date = cattle_data['cattle']['birth_date']
-                self.acquisition_method = cattle_data['cattle']['acquisition_method']
-                self.entry_date = cattle_data['cattle']['entry_date']
-                self.comments = cattle_data['cattle']['comments']
+            print(self.group_data)
+            if cattle_data['cattle']['end_date'] is None:
+                cattle = {
+                    'id': cattle_data['cattle']['id'],
+                    'type': cattle_data['cattle']['type'],
+                    'number': cattle_data['cattle']['number'],
+                    'name': cattle_data['cattle']['name'],
+                    'gender': cattle_data['cattle']['gender'],
+                    'breed': cattle_data['cattle']['breed'],
+                    'birth_date': cattle_data['cattle']['birth_date'],
+                    'acquisition_method': cattle_data['cattle']['acquisition_method'],
+                    'entry_date': cattle_data['cattle']['entry_date'],
+                    'comments': cattle_data['cattle']['comments'],
+                }
+                self.cattle_list.append(cattle)
+                print(self.cattle_list)
 
     def count_active_cattle(self):
         """
@@ -259,7 +265,6 @@ class CattleGroupData:
         """
         self.active_cattle = sum(
             1 for cattle_data in self.group_data if cattle_data['cattle']['end_date'] is None)
-
 
 class GroupsManagement:
     """

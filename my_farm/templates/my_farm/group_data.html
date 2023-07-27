@@ -22,7 +22,7 @@
       </thead>
 <tbody>
   {% for group in groups %}
-    {% for cattle in group.get_cattle_data %}
+    {% for cattle in group.cattle_list %}
       <tr>
         <td>{{ cattle.type }}</td>
         <td class="cattle-number">
