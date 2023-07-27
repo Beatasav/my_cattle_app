@@ -4,7 +4,6 @@ from django.views import View
 from .constants import MAX_REPORTS
 from .groups import GroupsManagement, GroupNumbers
 import json
-from .models import CattleMovementReport
 
 
 class GenerateReportView(View):
@@ -134,7 +133,7 @@ class LivestockMovementReportView(GroupsManagement, GenerateReportView, View):
             group = GroupNumbers(group_name, cattle_data)
             group.quantity(start_date_groups, end_date_groups, self.start_date, self.end_date)
             group.acquisition_loss(self.start_date, self.end_date)
-            group.check_movement(start_date_groups, end_date_groups)
+            group.check_movement(start_date_groups, end_date_groups, self.start_date, self.end_date)
             self.groups.append(group)
 
         context = {
@@ -143,24 +142,31 @@ class LivestockMovementReportView(GroupsManagement, GenerateReportView, View):
             'groups': self.groups,
         }
 
-        group_dicts = [group.to_dict() for group in self.groups]
-
-        last_reports = CattleMovementReport.objects.order_by('-id')[1:4]
-
-        context['last_reports'] = last_reports
-
-        report_data = json.dumps(group_dicts, cls=self.encoder_class, default=str)
-        report_title = f'Cattle Movement Report ({self.start_date.isoformat()} - {self.end_date.isoformat()})'
-        report = CattleMovementReport(title=report_title, report_data=report_data)
-        report.save()
-
-        all_reports = CattleMovementReport.objects.order_by('-id')
-        recent_reports = all_reports[:MAX_REPORTS]
-
-        old_reports = all_reports.exclude(pk__in=recent_reports)
-        old_reports.delete()
-
-        context['report_id'] = report.pk
+        # group_dicts = [group.to_dict() for group in self.groups]
+        #
+        # # Check if the last reports URL is accessed
+        # last_reports = CattleMovementReport.objects.order_by('-id')[1:4]
+        #
+        # # Pass the last reports to the template
+        # context['last_reports'] = last_reports
+        #
+        # # Save the report data
+        # report_data = json.dumps(group_dicts, cls=self.encoder_class, default=str)
+        # report_title = f'Cattle Movement Report ({self.start_date.isoformat()} - {self.end_date.isoformat()})'
+        # report = CattleMovementReport(title=report_title, report_data=report_data)
+        # report.save()
+        #
+        # all_reports = CattleMovementReport.objects.order_by('-id')
+        #
+        # # Keep the most recent reports (MAX_REPORTS)
+        # recent_reports = all_reports[:MAX_REPORTS]
+        #
+        # # Delete reports that are not in the recent reports list
+        # old_reports = all_reports.exclude(pk__in=recent_reports)
+        # old_reports.delete()
+        #
+        # # Pass the report ID to the template
+        # context['report_id'] = report.pk
 
         return render(request, self.report_template, context)
 
