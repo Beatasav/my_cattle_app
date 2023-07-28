@@ -131,6 +131,7 @@ class GroupNumbers:
                 elif cattle['loss_method'] == 'Gifted':
                     self.gifted_count += 1
                     self.gifted_weight += end_weight
+
     def check_movement(self, start_date_groups, end_date_groups, start_date, end_date):
         """
         Checks the movement of the group by comparing the start and end date groups.
@@ -153,15 +154,21 @@ class GroupNumbers:
 
         for item in self.filter_acquisition_loss_dates:
             cattle = item['cattle']
-            if cattle['end_date'] is not None and cattle['entry_date'] <= start_date:
+            if cattle['end_date'] is not None and cattle['entry_date'] <= start_date \
+                    and cattle['id'] not in [cattle['cattle']['id'] for cattle in start_date_list] \
+                    and cattle['end_date'] <= end_date:
                 end_weight = round(GroupsManagement().estimate_cattle_weight(cattle['id'], cattle['end_date']))
 
                 if item not in start_date_list:
                     moved_in.append({'cattle': cattle, 'weight': end_weight})
 
-            if cattle['entry_date'] >= start_date and 'loss_method' not in cattle and cattle not in end_date_list:
+            if cattle['entry_date'] >= start_date \
+                    and cattle['id'] not in [cattle['cattle']['id'] for cattle in end_date_list] \
+                    and 'loss_method' not in cattle:
                 entry_weight = round(GroupsManagement().estimate_cattle_weight(cattle['id'], cattle['entry_date']))
-                moved_in.append({'cattle': cattle, 'weight': entry_weight})
+
+                if item not in start_date_list:
+                    moved_out.append({'cattle': cattle, 'weight': entry_weight})
 
         self.moved_in = len(moved_in)
         self.moved_out = len(moved_out)
