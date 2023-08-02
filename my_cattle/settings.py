@@ -11,23 +11,23 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
-# from decouple import config
+from azure.identity import DefaultAzureCredential
+from azure.keyvault.secrets import SecretClient
+from dotenv import load_dotenv
 
-
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+credentials = DefaultAzureCredential()
+keyvault_url = 'https://cattle-key-vault.vault.azure.net/'
+secret_client = SecretClient(vault_url=keyvault_url, credential=credentials)
+SECRET_KEY = secret_client.get_secret('cattlesecretkey').value
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
-
-SECRET_KEY = 'django-insecure-*j=i)1jnua!z)j(*7p6v1333qdhb)z^2o_t0!^0nn%%p_5(bi3'
-# DEBUG = config('DEBUG', cast=bool)
-DEBUG = False
-# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = bool(secret_client.get_secret('cattledebug').value)
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['mycattle.azurewebsites.net']
 
 LOGGING = {
     'version': 1,
@@ -128,10 +128,10 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 DATABASES = {
     'default': {
         'ENGINE': 'mssql',
-        'NAME': 'cattlemanagement',
-        'USER': 'cattle_admin',
-        'PASSWORD': 'Kasgero123',
-        'HOST': 'cattlemanagement.database.windows.net',
+        'NAME': secret_client.get_secret('cattledatabasename').value,
+        'USER': secret_client.get_secret('cattledatabaseuser').value,
+        'PASSWORD': secret_client.get_secret('cattledatabasepassword').value,
+        'HOST': secret_client.get_secret('cattledatabasehost').value,
         'PORT': '',
 
         'OPTIONS': {
