@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm
 
@@ -11,3 +12,13 @@ def main(request):
     """
     form = AuthenticationForm()
     return render(request, 'main.html', {'form': form})
+
+
+def health_check(request):
+    """
+    View function to handle health check requests.
+
+    :param request: The HTTP request object.
+    :return: JsonResponse with the health status of the application.
+    """
+    return JsonResponse({"status": "Healthy"})
