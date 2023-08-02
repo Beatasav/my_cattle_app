@@ -23,57 +23,57 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
 
-<!-- Navigation -->
 
-<nav class="navbar navbar-expand-lg static-top navbar-custom">
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg static-top navbar-custom">
     <div class="container">
-        <a class="navbar-brand nav-link my-cattle-link" href="{% url 'my_farm:home' %}">My Cattle</a>
-        {% if user.is_authenticated %}
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+      <a class="navbar-brand nav-link my-cattle-link" href="{% url 'my_farm:home' %}">My Cattle</a>
+      {% if user.is_authenticated %}
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'my_farm:field_list' %}">Fields</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'my_farm:herd_list' %}">Herds</a>
-                </li>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'my_farm:field_list' %}">Fields</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'my_farm:herd_list' %}">Herds</a>
+          </li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCattle" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Cattle
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownCattle">
-                        <a class="dropdown-item" href="{% url 'my_farm:add_cattle' %}">Add Cattle</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{% url 'my_farm:cattle_info' %}">All Cattle</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{% url 'my_farm:generate_report' %}">Movement report</a>
-                    </div>
-                </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCattle" role="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Cattle
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownCattle">
+              <a class="dropdown-item" href="{% url 'my_farm:add_cattle' %}">Add Cattle</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{% url 'my_farm:cattle_info' %}">All Cattle</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{% url 'my_farm:generate_report' %}">Movement report</a>
+            </div>
+          </li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUser" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-user"></i> <!-- User icon -->
-                        {{ user.username }}
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownUser">
-<!--                        <a class="dropdown-item" href="{% url 'profile' %}">Account</a>-->
-<!--                        <div class="dropdown-divider"></div>-->
-                        <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUser" role="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-user"></i> <!-- User icon -->
+              {{ user.username }}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownUser">
+              <!-- <a class="dropdown-item" href="{% url 'profile' %}">Account</a> -->
+              <!-- <div class="dropdown-divider"></div> -->
+              <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      {% endif %}
     </div>
-</nav>
-{% endif %}
+  </nav>
 
     <!-- Page Content -->
 
