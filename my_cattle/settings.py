@@ -11,23 +11,15 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
-from azure.identity import DefaultAzureCredential
-from azure.keyvault.secrets import SecretClient
-from dotenv import load_dotenv
 
-load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-credentials = DefaultAzureCredential()
-keyvault_url = 'https://cattle-key-vault.vault.azure.net/'
-secret_client = SecretClient(vault_url=keyvault_url, credential=credentials)
-SECRET_KEY = secret_client.get_secret('cattlesecretkey').value
+SECRET_KEY = 'django-insecure-*j=i)1jnua!z)j(*7p6v1333qdhb)z^2o_t0!^0nn%%p_5(bi3'
 
-DEBUG = bool(secret_client.get_secret('cattledebug').value)
-DEBUG_PROPAGATE_EXCEPTIONS = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['mycattle.azurewebsites.net']
+ALLOWED_HOSTS = ['*']
 
 LOGGING = {
     'version': 1,
@@ -61,9 +53,6 @@ LOGGING = {
         },
     }
 }
-
-
-
 
 INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
@@ -122,22 +111,21 @@ WSGI_APPLICATION = 'my_cattle.wsgi.application'
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'mssql',
-        'NAME': secret_client.get_secret('cattledatabasename').value,
-        'USER': secret_client.get_secret('cattledatabaseuser').value,
-        'PASSWORD': secret_client.get_secret('cattledatabasepassword').value,
-        'HOST': secret_client.get_secret('cattledatabasehost').value,
+        'NAME': 'cattlemanagement',
+        'USER': 'cattle_admin',
+        'PASSWORD': 'Kasgero123',
+        'HOST': 'cattlemanagement.database.windows.net',
         'PORT': '',
 
         'OPTIONS': {
             'driver': 'ODBC Driver 18 for SQL Server' }
         },
     }
+
 # set this to False if the backend does not support using time zones
 USE_TZ = False
 
@@ -160,9 +148,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/4.2/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Europe/Vilnius'
@@ -171,22 +156,18 @@ USE_I18N = True
 
 USE_TZ = True
 
-# Define the absolute filesystem path to the directory where `collectstatic` will copy the static files.
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Define the URL base that will be used to serve the static files during runtime.
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'my_farm/static'),
 ]
-# Set the static files storage to WhiteNoise for serving static files in production.
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Set the default character encoding for the project
 DEFAULT_CHARSET = 'utf-8'
 
-# Set the character encoding used for reading and writing files
 FILE_CHARSET = 'utf-8'
 
 LOGIN_URL = '/login/'
