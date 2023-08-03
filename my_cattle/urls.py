@@ -17,7 +17,7 @@ urlpatterns = [
     path('login/', LoginView.as_view(template_name='login.html'), name='login'),
     path('profile/', profile, name='profile'),
     path('profile/password_change/', password, name='password_change'),
-    path('api/health', health_check, name='health_check'),
+    path('api/health/', health_check, name='health_check'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
