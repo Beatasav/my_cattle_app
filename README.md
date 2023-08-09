@@ -72,3 +72,6 @@ This project was created as the final project for the CodeAcademy Python Program
 - [Rasa Jeskevič](https://github.com/JeskevicRasa)
 
 The original version of the project that we worked on together without deployment settings is here: https://github.com/JeskevicRasa/my_cattle
+
+
+Happy cattle management! 🐮
