@@ -62,5 +62,11 @@ To use the application, follow these steps based on your preferred version:
 4. **Manage Cattle**: From the user-friendly dashboard, oversee cattle movements, group assignments, and other related information.
 5. **Generate Reports**: Generate reports to analyze cattle data and make well-informed decisions.
 
-Happy cattle management! 🐮
+## Authors
 
+This project was created as the final project for the CodeAcademy Python Programming course, collaboratively by:
+
+- Beata Savkaite
+- [Rasa Jeskevič](https://github.com/JeskevicRasa)
+
+For a version of the project that we worked on together, you can check out the original repository [here](https://github.com/JeskevicRasa/my_cattle).
