@@ -2,6 +2,7 @@
 
 My Cattle is a web application designed to assist cattle farmers in managing their cattle, herds, and fields. 
 The application offers a centralized platform for recording and accessing essential information about livestock and fields, as well as generating livestock movement reports. 
+
 This README provides an overview of the application's features, including its installation process, deployment information, and guidelines for effective usage of both the live version and locally installed versions.
 
 ## Features
