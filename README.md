@@ -1,26 +1,48 @@
 # My Cattle Project
 
 My Cattle Project is a web application designed to assist cattle farmers in managing their cattle, herds, and fields. 
-The project aims to provide a centralized platform for recording and accessing essential information about cattle, herds, and fields, as well as generating livestock movement reports. 
+The project aims to provide a centralized platform for recording and accessing essential information about livestock and fields, as well as generating livestock movement reports. 
 This README provides an overview of the project, installation instructions, and usage guidelines.
 
 ## Features
 
-- **Cattle Management**: The application allows users to record detailed information about each individual cattle, including acquisition method, birth date, weight, and other essential data. This centralized data storage enables easy access to cattle records at any time.
+- **Cattle Management**: Record and manages individual cattle details, including number, name, gender, breed, acquisition, birth and entry dates, loss methods, and more. Allocate cattle to existing herds and update entries seamlessly for accurate management.
 
-- **Group Management**: Organize cattle into age groups for better organization and management.
+- **Herd Management**: Organize cattle into herds. Keep track of important herd details like location, start date, end date, leader, and status. Easily assign one or more cattle to a herd, select existing fields for their location, and update entries seamlessly for precise management.
 
-- **Herd Management**: Organize cattle into herds, allowing users to create herds and track information about each herd. Users can easily assign individual cattle to herds and allows recording herd details such as field,start date, herd leader, and status.
+- **Field Management**: Record details about fields where herds are located. Add information such as field size, location, coordinates, and any specific conditions relevant to the field. Also, assign herds to particular field.
+- 
+- **Group Management**: Categorize cattle into age groups to simplify farm oversight and reporting.
 
-- **Field Management**: Record information about fields where herds are located. Users can add details such as field size, location, coordinates, and any other specific conditions relevant to the field. Additionally, farmers can assign herds to specific fields for better organization and management.
+- **Dashboard**: Displays the count of cattle within each age group currently present on the farm and provides access to all cattle within their respective groups.
 
-- **Dashboard**: Get a clear overview of active cattle by age group, herds, and fields.
+- **Efficient Search**: Quick access to information about cattle, herds, and fields through search functionality. 
 
-- **Efficient Search**: Quick access to information about cattle, herds, and fields through efficient search functionality. Farmers can easily find specific data they need, helping to manage their cattle farm effectively.
-
-- **Livestock Movement Report**: Generate detailed reports to track changes in their livestock over different age groups, monitor weight fluctuations, and observe acquisition and loss events within selected time periods. 
+- **Livestock Movement Report**: Generate detailed reports to track changes in livestock across different age groups. Monitor weight fluctuations, observe acquisition and loss events within selected time periods. 
 
 - **User Authentication**: Secure access to the application with user authentication.
+
+# Deployment
+
+Explore the live version of the application online. Please consider the following:
+
+- **Access URL**: https://mycattle.azurewebsites.net/
+- **Limitations**: The deployment is hosted on a free Microsoft Azure account, which might result in occasional slower loading times. If the application doesn't load initially, please try again later.
+- **User Access**: To browse, please log in:
+Username: 'guest'
+Password: 'gu94estuzo85''
+
+# Usage (Deployed Version):
+
+Here's how to effectively use the deployed version of the application:
+
+1. Access the Application: Open your web browser and visit the provided deployment URL mentioned in the "Deployment" section.
+2. Log in: Use the following credentials:
+Username: 'guest'
+Password: 'gu94estuzo85'
+3. Explore Cattle Information: On the main page's dashboard, access cattle information by age group, active herd, and active fields.
+4. Manage Data: Utilize the navigation panel to access recorded fields, herds, and cattle. From there, perform management actions such as adding new items or updating existing data.
+5. Generate Reports: Create livestock movement reports to analyze cattle data.
 
 ## Installation
 
