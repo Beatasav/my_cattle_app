@@ -1,18 +1,18 @@
-# My Cattle Project
+# My Cattle - Cattle Management Web Application
 
-My Cattle Project is a web application designed to assist cattle farmers in managing their cattle, herds, and fields. 
-The project aims to provide a centralized platform for recording and accessing essential information about livestock and fields, as well as generating livestock movement reports. 
-This README provides an overview of the project, installation instructions, and usage guidelines.
+My Cattle is a web application designed to assist cattle farmers in managing their cattle, herds, and fields. 
+The application offers a centralized platform for recording and accessing essential information about livestock and fields, as well as generating livestock movement reports. 
+This README provides an overview of the application's features, including its installation process, deployment information, and guidelines for effective usage of both the live version and locally installed versions.
 
 ## Features
 
-- **Cattle Management**: Record and manages individual cattle details, including number, name, gender, breed, acquisition, birth and entry dates, loss methods, and more. Allocate cattle to existing herds and update entries seamlessly for accurate management.
+- **Cattle Management**: Record and manage individual cattle details, including number, name, gender, breed, acquisition, birth and entry dates, loss methods, and more. Allocate cattle to existing herds and update entries seamlessly for accurate management.
 
 - **Herd Management**: Organize cattle into herds. Keep track of important herd details like location, start date, end date, leader, and status. Easily assign one or more cattle to a herd, select existing fields for their location, and update entries seamlessly for precise management.
 
 - **Field Management**: Record details about fields where herds are located. Add information such as field size, location, coordinates, and any specific conditions relevant to the field. Also, assign herds to particular field.
 
-- **Group Management**: Categorize cattle into age groups to simplify farm oversight and reporting.
+- **Group Management**: Categorize cattle into age groups to simplify livestock oversight and reporting.
 
 - **Dashboard**: Displays the count of cattle within each age group currently present on the farm and provides access to all cattle within their respective groups.
 
