@@ -1,9 +1,8 @@
 from datetime import date, datetime
 from django.shortcuts import render, redirect
 from django.views import View
-from .constants import MAX_REPORTS
 from .cattle_groups import GroupsManagement, GroupNumbers
-import json
+
 
 
 class GenerateReportView(View):
