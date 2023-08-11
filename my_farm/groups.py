@@ -64,7 +64,7 @@ class GroupNumbers:
         end_date_list = end_date_groups.get(self.group_name, [])
 
         start_date_filtered = [cattle for cattle in start_date_list if (cattle['cattle']['end_date'] is None or
-                                                                        cattle['cattle']['end_date'] >= start_date)]
+                                                                        start_date >= cattle['cattle']['end_date'])]
 
         end_date_filtered = [cattle for cattle in end_date_list if (cattle['cattle']['end_date'] is None or
                                                                     cattle['cattle']['end_date'] >= end_date)]
