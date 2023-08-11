@@ -2,7 +2,7 @@ from datetime import date, datetime
 from django.shortcuts import render, redirect
 from django.views import View
 from .constants import MAX_REPORTS
-from .groups import GroupsManagement, GroupNumbers
+from .cattle_groups import GroupsManagement, GroupNumbers
 import json
 
 
@@ -88,7 +88,6 @@ class LivestockMovementReportView(GroupsManagement, GenerateReportView, View):
         super(GenerateReportView, self).__init__()
         super(View, self).__init__()
         self.groups = []
-        self.encoder_class = GroupNumbersEncoder
 
     def load_report_data(self, request):
         """
@@ -142,70 +141,5 @@ class LivestockMovementReportView(GroupsManagement, GenerateReportView, View):
             'groups': self.groups,
         }
 
-        # group_dicts = [group.to_dict() for group in self.groups]
-        #
-        # # Check if the last reports URL is accessed
-        # last_reports = CattleMovementReport.objects.order_by('-id')[1:4]
-        #
-        # # Pass the last reports to the template
-        # context['last_reports'] = last_reports
-        #
-        # # Save the report data
-        # report_data = json.dumps(group_dicts, cls=self.encoder_class, default=str)
-        # report_title = f'Cattle Movement Report ({self.start_date.isoformat()} - {self.end_date.isoformat()})'
-        # report = CattleMovementReport(title=report_title, report_data=report_data)
-        # report.save()
-        #
-        # all_reports = CattleMovementReport.objects.order_by('-id')
-        #
-        # # Keep the most recent reports (MAX_REPORTS)
-        # recent_reports = all_reports[:MAX_REPORTS]
-        #
-        # # Delete reports that are not in the recent reports list
-        # old_reports = all_reports.exclude(pk__in=recent_reports)
-        # old_reports.delete()
-        #
-        # # Pass the report ID to the template
-        # context['report_id'] = report.pk
-
         return render(request, self.report_template, context)
 
-
-class GroupNumbersEncoder(json.JSONEncoder):
-    """
-    Custom JSON encoder for serializing objects of the GroupNumbers class.
-
-    Methods:
-    default(self, obj): Overrides the default method of the JSONEncoder class.
-    """
-    def default(self, obj):
-        """
-        Serializes the GroupNumbers object into a dictionary using the to_dict method.
-
-        :param obj: The object to be serialized.
-        :return: The serialized dictionary representation of the object.
-        """
-        if isinstance(obj, GroupNumbers):
-            return obj.to_dict()
-        if isinstance(obj, date):
-            return obj.isoformat()
-        return super().default(obj)
-
-
-class DateEncoder(json.JSONEncoder):
-    """
-    Custom JSON encoder for serializing date objects.
-
-    Methods:
-    default(self, obj): Overrides the default method of the JSONEncoder class.
-    """
-    def default(self, obj):
-        """
-        Serializes the date object into its ISO format.
-
-        :param obj: The date object to be serialized.
-        :return: The ISO-formatted string representation of the date object.
-        """
-        if isinstance(obj, date):
-            return obj.isoformat()
-        return super().default(obj)
