@@ -28,7 +28,7 @@ This README provides an overview of the application's features, including its in
 Explore the live version of the application online. Please consider limitations:
 
 - **Access URL**: https://mycattle.azurewebsites.net/
-- **Limitations**: The deployment is hosted on a free Microsoft Azure account, which might result in occasional slower loading times.
+- **Limitations**: The deployment is hosted on a free Microsoft Azure account, which might result in a slightly longer initial loading process when accessed for the first time.
 - **User Access**: To browse, please log in:
   - Username: 'guest'
   - Password: 'gu94estuzo85'

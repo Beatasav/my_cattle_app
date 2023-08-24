@@ -19,8 +19,6 @@ urlpatterns = [
 
     path('generate_report/', GenerateReportView.as_view(), name='generate_report'),
     path('livestock_movement_report/', LivestockMovementReportView.as_view(), name='report'),
-    path('livestock_movement_report/last_reports/', LivestockMovementReportView.as_view(), {'last_reports': True},
-         name='last_reports'),
 
     path('cattle_info/', cattle_info, name='cattle_info'),
     path('cattle/<int:cattle_id>/', cattle_detail, name='cattle_detail'),

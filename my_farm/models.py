@@ -136,12 +136,3 @@ class Herd(models.Model):
         Returns a string representation of the herd object, showing its name.
         """
         return self.name
-
-
-# class CattleMovementReport(models.Model):
-#     """
-#     Represents a report of cattle movement, including detailed data and its generation date.
-#     """
-#     title = models.CharField(max_length=100)
-#     generated_date = models.DateTimeField(auto_now_add=True)
-#     report_data = models.JSONField()
