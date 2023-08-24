@@ -4,7 +4,6 @@ from django.views import View
 from .groups import GroupsManagement, GroupNumbers
 
 
-
 class GenerateReportView(View):
     """
     A view class for generating a report.
@@ -130,7 +129,8 @@ class LivestockMovementReportView(GroupsManagement, GenerateReportView, View):
         for group_name, cattle_data in estimation_date.items():
             group = GroupNumbers(group_name, cattle_data)
             group.quantity(start_date_groups, end_date_groups, self.start_date, self.end_date)
-            group.acquisition_loss(self.start_date, self.end_date)
+            group.check_acquisition(self.start_date, self.end_date)
+            group.check_loss(self.start_date, self.end_date)
             group.check_movement(start_date_groups, end_date_groups, self.start_date, self.end_date)
             self.groups.append(group)
 
