@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import DeleteView
-from my_cattle.forms import GenderForm, CattleForm
+from django_app.forms import GenderForm, CattleForm
 from my_farm.models import Cattle, Herd
 
 

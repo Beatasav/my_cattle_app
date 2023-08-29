@@ -1,7 +1,7 @@
 from django.core.paginator import Paginator
 from django.db.models import Count, Q
 from django.shortcuts import render, redirect, get_object_or_404
-from my_cattle.forms import HerdForm
+from django_app.forms import HerdForm
 from my_farm.models import Cattle, Herd
 
 

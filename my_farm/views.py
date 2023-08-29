@@ -6,7 +6,7 @@ from django.template.defaultfilters import slugify
 from django.utils import timezone
 from .models import Herd, Field
 from django.urls import reverse
-from .groups import GroupsManagement, CattleGroupData
+from .cattle_groups import GroupsManagement, CattleGroupData
 
 
 @login_required
