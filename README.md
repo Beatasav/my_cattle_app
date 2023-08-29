@@ -5,7 +5,7 @@ The application offers a centralized platform for recording and accessing essent
 
 This README provides an overview of the application's features, including its installation process, deployment information, and guidelines for effective usage of both the live version and locally installed versions.
 
-## 💡 Features
+## Features
 
 - **Cattle Management**: Record and manage individual cattle details, including number, name, gender, breed, acquisition, birth and entry dates, loss methods, and more. Allocate cattle to existing herds and update entries seamlessly for accurate management.
 
@@ -23,7 +23,7 @@ This README provides an overview of the application's features, including its in
 
 - **User Authentication**: Secure access to the application with user authentication.
 
-## 🌐 Deployment
+## Deployment
 
 Explore the live version of the application online. Please consider limitations:
 
@@ -33,16 +33,16 @@ Explore the live version of the application online. Please consider limitations:
   - Username: 'guest'
   - Password: 'gu94estuzo85'
 
-## 💾 Installation
+## Installation
 
 1. Clone original project repository without deployment settings for local development and testing:
- `[https://github.comJeskevicRasa/my_cattle](https://github.com/JeskevicRasa/my_cattle)'
+ 'git clone https://github.com/Beatasav/cattle_management'
 3. Install dependencies: `pip install -r requirements.txt`
 4. Set up the database - note that this is running on SQLite by default, you will have to download and install it: `python manage.py migrate`
 5. Create a superuser: `python manage.py createsuperuser`
 6. Start the development server: `python manage.py runserver`
  
-## 🏃‍♀️ Usage
+## Usage
 
 To use the application, follow these steps based on your preferred version:
 
@@ -64,14 +64,12 @@ To use the application, follow these steps based on your preferred version:
 4. **Explore Cattle Information**: After inputting data, go to the main dashboard and access cattle details by age group, active herds, and fields.
 5. **Generate Reports**: Create livestock movement reports to monitor changes in livestock across different age groups during selected time periods.
 
-## 👨‍💻 Authors
+## Authors
 
 This project was created as the final project for the CodeAcademy Python Programming course, collaboratively by:
 
 - [Beata Savkaitė](https://github.com/Beatasav)
 - [Rasa Jeskevič](https://github.com/JeskevicRasa)
-
-The original version of the project that we worked on together without deployment settings is here: https://github.com/JeskevicRasa/my_cattle
 
 
 Happy cattle management! 🐮
