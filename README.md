@@ -36,9 +36,12 @@ Explore the live version of the application online. Please consider limitations:
 ## Installation
 
 1. Clone original project repository without deployment settings for local development and testing:
- 'git clone https://github.com/Beatasav/cattle_management'
+ `git clone https://github.com/Beatasav/cattle_management`
+
 2. Install dependencies: `pip install -r requirements.txt`
-3. Set up the database - note that this is running on SQLite by default, you will have to download and install it: `python manage.py migrate`
+3. Set up the database - note that this is running on SQLite by default, you will have to download and install it: 
+`py manage.py makemigrations`
+`python manage.py migrate`
 4. Create a superuser: `python manage.py createsuperuser`
 5. Start the development server: `python manage.py runserver`
  
