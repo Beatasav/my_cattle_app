@@ -23,10 +23,10 @@ The application offers a centralized platform for recording and accessing essent
 
 ## Deployment
 
-Explore the live version of the application online. Please consider limitations:
+Explore the live version of the application online:
 
 - **Access URL**: https://mycattle.azurewebsites.net/
-- **Limitations**: The deployment is hosted on a free Microsoft Azure account, which might result in a slightly longer initial loading process when accessed for the first time.
+> **Note:** The deployment is hosted on a free Microsoft Azure account, which might result in a slightly longer initial loading process when accessed for the first time.
 - **User Access**: To browse, please log in:
   - Username: 'guest'
   - Password: 'gu94estuzo85'
