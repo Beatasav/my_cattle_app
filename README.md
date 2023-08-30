@@ -69,4 +69,4 @@ To use the application, follow these steps based on your preferred version:
 5. **Generate Reports**: Create livestock movement reports to monitor changes in livestock across different age groups during selected time periods.
 
 
-Happy cattle management! 🐮
+Happy cattle management! 
